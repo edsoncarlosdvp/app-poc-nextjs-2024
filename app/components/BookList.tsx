@@ -1,9 +1,15 @@
-export const BookList = ({ books }: any): JSX.Element => {
+import { IBook } from '../util/interfaces/IBook';
+
+interface IBookList {
+  books: IBook[];
+}
+
+export const BookList = ({ books }: IBookList): JSX.Element => {
   return (
     <div>
       <ul>
-        {books.map((book: any, index: any) => (
-          <li key={index}>
+        {books.map((book) => (
+          <li key={book.id}>
             <h3>{book.volumeInfo.title}</h3>
             <p>Autor(es): {book.volumeInfo.authors.join(', ')}</p>
             <p>Editora: {book.volumeInfo.publisher}</p>
