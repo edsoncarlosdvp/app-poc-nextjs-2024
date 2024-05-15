@@ -4,6 +4,6 @@ export async function getAllBooks(query: any) {
   const response = await fetch(url);
   const data = await response.json();
 
-  console.log(data);
+  console.log('getAll: ', data);
   return data.item || [];
 }
