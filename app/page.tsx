@@ -16,11 +16,9 @@ export default function Home() {
     }
   };
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div className='z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex'>
-        <div>
-          <BookSearch onSearch={handleSearch} />
-        </div>
+    <main className='flex min-h-screen items-center justify-center p-5'>
+      <div className='flex flex-wrap w-max'>
+        <BookSearch onSearch={handleSearch} />
         <BookList books={books} />
       </div>
     </main>
