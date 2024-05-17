@@ -5,7 +5,7 @@ interface IBookSearch {
 }
 
 export default function BookSearch({ onSearch }: IBookSearch) {
-  const [query, setQuery] = useState('cangaço');
+  const [query, setQuery] = useState('Programação');
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);

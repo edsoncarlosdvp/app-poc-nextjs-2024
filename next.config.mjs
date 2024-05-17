@@ -8,9 +8,20 @@ export const nextConfig = {
     remotePatterns: [
       {
         protocol: ['https', 'http'],
-        hostname: ['books.google.com', 'books.google.com.br'],
+        hostname: [
+          'books.google.com', 
+          'books.google.com.br', 
+          'googleapis.com',
+        ],
         port: '',
-        pathname: '/**',
+        pathname: [
+          '/*',
+          '/**',
+          '/books.google.com/books/content',
+          '/books.google.com/books/v1/volumes',
+          '/books/content',
+          '/books/v1/volumes'
+        ],
       },
     ],
   },

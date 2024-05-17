@@ -12,27 +12,25 @@ export const BookList = ({ books }: IBookList): JSX.Element => {
       {books.map((book) => (
         <li
           key={book.id}
-          className='h-64 text-left bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border'
+          className='h-auto text-left bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border'
         >
           <h3>{book.volumeInfo.title}</h3>
-          {book.volumeInfo?.previewLink ? (
             <Image
-              src={book.volumeInfo?.previewLink}
+              className='mx-auto mt-4 mb-4'
+              unoptimized
+              src={book.volumeInfo.imageLinks.smallThumbnail && book.volumeInfo.imageLinks.smallThumbnail}
               width={100}
               height={150}
               alt={`Imagem do livro ${book.volumeInfo.title}`}
             />
-          ) : (
-            ''
-          )}
           <p>Autor(es): {book.volumeInfo.authors.join(', ')}</p>
           <p>Editora: {book.volumeInfo.publisher}</p>
           <p>Ano de Publicação: {book.volumeInfo.publishedDate}</p>
           <p className={style.truncatewrap}>
             Descrição: {book.volumeInfo.description}
           </p>
-        </li>
-      ))}
+        </li>)
+      )}
     </ul>
   );
 };
