@@ -1,7 +1,7 @@
 'use client';
 import { getAllBooks } from './api/apiBooks';
-import { BookList } from './components/BookList';
-import BookSearch from './components/BookSearch';
+import { BookList } from './components/BookList/BookList';
+import BookSearch from './components/BookSearch/BookSearch';
 import { useState } from 'react';
 
 export default function Home() {

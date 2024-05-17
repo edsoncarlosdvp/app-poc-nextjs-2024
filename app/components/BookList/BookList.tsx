@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IBook } from '../util/interfaces/IBook';
+import { IBook } from '../../util/interfaces/IBook';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import style from './style.module.scss';
 
