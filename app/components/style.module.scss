@@ -1,3 +1,11 @@
 .content {
   overflow-y: auto;
 }
+
+.truncatewrap {
+  display: block;
+  text-overflow: ellipsis; // deveria por as reticências
+  text-align: justify;
+  overflow: hidden;
+  max-height: 4.6rem;
+}

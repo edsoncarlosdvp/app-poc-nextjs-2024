@@ -1,6 +1,4 @@
-import { FormEvent, useState } from 'react';
-import { getAllBooks } from '../api/apiBooks';
-import styles from './style.module.scss';
+import { useState } from 'react';
 
 interface IBookSearch {
   onSearch: (query: string) => void;
