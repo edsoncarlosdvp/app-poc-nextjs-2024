@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { IBook } from '../util/interfaces/IBook';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import style from './style.module.scss';
 
 interface IBookList {
@@ -14,7 +15,10 @@ export const BookList = ({ books }: IBookList): JSX.Element => {
           key={book.id}
           className='h-auto text-left bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border'
         >
-          <h3>{book.volumeInfo.title}</h3>
+          <div className='flex justify-between'>
+            <h3>{book.volumeInfo.title}</h3>
+            <FavoriteBorderIcon style={{ cursor: 'pointer', color: 'red' }} />
+          </div>
           <Image
             className='mx-auto mt-4 mb-4'
             unoptimized
