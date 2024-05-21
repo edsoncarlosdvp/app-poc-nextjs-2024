@@ -12,6 +12,7 @@ import NotificationsIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import FavoriteCount from '@/app/components/FavoriteCount/FavoriteCount';
+import Link from 'next/link';
 
 interface IAppBarHome {
   children: React.ReactNode;
@@ -81,7 +82,16 @@ export default function AppBarHome({ children }: IAppBarHome) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem></MenuItem>
+      <MenuItem sx={{ marginLeft: 0 }}>
+        <IconButton
+          size='large'
+          aria-label='show 17 new notifications'
+          color='inherit'
+        >
+          <FavoriteCount />
+        </IconButton>
+        <p>Favoritos</p>
+      </MenuItem>
       <MenuItem>
         <IconButton
           size='large'
@@ -122,14 +132,11 @@ export default function AppBarHome({ children }: IAppBarHome) {
           >
             <MenuIcon />
           </IconButton>
-          <div className='searchiconwrapper'>
-            <div className='search'>
-              <div className='MuiInputBase-input'>{children}</div>
-            </div>
-          </div>
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }}>{children}</Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <FavoriteCount />
+            <Link href='/pages/favorites' passHref>
+              <FavoriteCount />
+            </Link>
             <IconButton
               size='large'
               aria-label='show 17 new notifications'

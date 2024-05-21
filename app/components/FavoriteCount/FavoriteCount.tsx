@@ -5,7 +5,7 @@ import Badge from '@mui/material/Badge';
 import FavoriteIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 interface IFavoriteCount {
-  message?: string
+  message?: string;
 }
 
 const FavoriteCount = ({ message }: IFavoriteCount) => {
@@ -14,12 +14,21 @@ const FavoriteCount = ({ message }: IFavoriteCount) => {
   );
   return (
     <div>
-      <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={favoriteCount} color="error">
-            <FavoriteIcon />
-          </Badge>
-        </IconButton>
-        <p>{message}</p>
+      <IconButton
+        size='large'
+        aria-label=''
+        color='inherit'
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          paddingLeft: 0,
+        }}
+      >
+        <Badge badgeContent={favoriteCount} color='error'>
+          <FavoriteIcon />
+        </Badge>
+      </IconButton>
+      <p>{message}</p>
     </div>
   );
 };
