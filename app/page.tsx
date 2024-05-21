@@ -5,7 +5,6 @@ import { BookList } from './components/BookList/BookList';
 import BookSearch from './components/BookSearch/BookSearch';
 import { useState } from 'react';
 import store from './Redux/Store/FavoritesStore';
-import FavoriteCount from './components/FavoriteCount/FavoriteCount';
 import { ThemeProvider, createTheme } from '@mui/material';
 import AppBarHome from './shared/components/AppBar/AppBar';
 
@@ -25,10 +24,10 @@ export default function Home() {
     }
   };
   return (
-    <main className='flex min-h-screen items-center justify-center p-5'>
+    <main className='flex justify-center'>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <div className='flex flex-wrap w-max'>
+          <div className='flex flex-wrap justify-center top-0'>
             <AppBarHome>
               <BookSearch onSearch={handleSearch} />
             </AppBarHome>

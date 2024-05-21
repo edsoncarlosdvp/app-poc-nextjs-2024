@@ -26,11 +26,11 @@ export const BookList = ({ books }: IBookList): JSX.Element => {
   };
 
   return (
-    <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto mt-16'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-center mx-auto mt-12'>
       {books.map((book) => (
-        <li
+        <div
           key={book.id}
-          className='h-auto text-left bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border'
+          className='h-auto text-left bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border'
         >
           <div
             className='flex justify-between'
@@ -61,8 +61,8 @@ export const BookList = ({ books }: IBookList): JSX.Element => {
           <p className={style.truncatewrap}>
             Descrição: {book.volumeInfo.description}
           </p>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
