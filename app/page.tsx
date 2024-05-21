@@ -6,6 +6,12 @@ import BookSearch from './components/BookSearch/BookSearch';
 import { useState } from 'react';
 import store from './Redux/Store/FavoritesStore';
 import FavoriteCount from './components/FavoriteCount/FavoriteCount';
+import { ThemeProvider, createTheme } from '@mui/material';
+import AppBarHome from './shared/components/AppBar/AppBar';
+
+const theme = createTheme({
+  // seu tema personalizado aqui
+});
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -20,13 +26,16 @@ export default function Home() {
   };
   return (
     <main className='flex min-h-screen items-center justify-center p-5'>
-      <Provider store={store}>
-        <div className='flex flex-wrap w-max'>
-          <FavoriteCount />
-          <BookSearch onSearch={handleSearch} />
-          <BookList books={books} />
-        </div>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <div className='flex flex-wrap w-max'>
+            <AppBarHome>
+              <BookSearch onSearch={handleSearch} />
+            </AppBarHome>
+            <BookList books={books} />
+          </div>
+        </Provider>
+      </ThemeProvider>
     </main>
   );
 }

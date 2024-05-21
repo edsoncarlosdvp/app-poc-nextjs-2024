@@ -1,0 +1,21 @@
+// Search.module.scss
+@import '/theme/themeVariables.scss';
+
+.search {
+  position: relative;
+  border-radius: var(--mui-shape-borderRadius);
+  background-color: rgba(var(--mui-palette-common-white-rgb), 0.15);
+
+  &:hover {
+    background-color: rgba(var(--mui-palette-common-white-rgb), 0.25);
+  }
+
+  margin-right: var(--mui-spacing-2);
+  margin-left: 0;
+  width: 100%;
+
+  @media (min-width: var(--mui-breakpoints-sm)) {
+    margin-left: var(--mui-spacing-3);
+    width: auto;
+  }
+}
