@@ -8,7 +8,7 @@ import ThemeProvider from './theme/ThemeProvider';
 import {
   ThemeContext,
   ThemeProviderContext,
-} from './Context/ThemeProviderContext';
+} from './theme/ThemeProviderContext';
 import { useContext } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -30,13 +30,7 @@ export default function RootLayout({
       <ThemeProvider>
         <ThemeProviderContext>
           <Provider store={store}>
-            <body
-              className={`inter.className ${
-                theme === 'dark' ? 'dark-theme' : ''
-              }`}
-            >
-              {children}
-            </body>
+            <body className={inter.style.fontFamily}>{children}</body>
           </Provider>
         </ThemeProviderContext>
       </ThemeProvider>
