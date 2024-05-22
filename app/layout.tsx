@@ -4,7 +4,12 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Provider } from 'react-redux';
 import store from './Redux/Store/FavoritesStore';
-import ThemeProvider from '@/theme/ThemeProvider';
+import ThemeProvider from './theme/ThemeProvider';
+import {
+  ThemeContext,
+  ThemeProviderContext,
+} from './Context/ThemeProviderContext';
+import { useContext } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +23,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <html lang='pt-br'>
       <ThemeProvider>
-        <Provider store={store}>
-          <body className={inter.className}>{children}</body>
-        </Provider>
+        <ThemeProviderContext>
+          <Provider store={store}>
+            <body
+              className={`inter.className ${
+                theme === 'dark' ? 'dark-theme' : ''
+              }`}
+            >
+              {children}
+            </body>
+          </Provider>
+        </ThemeProviderContext>
       </ThemeProvider>
     </html>
   );

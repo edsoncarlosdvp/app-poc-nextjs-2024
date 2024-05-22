@@ -12,6 +12,18 @@ body {
   background: var(--background-primary);
 }
 
+.dark-theme * {
+  background-color: #333;
+  color: #fff;
+  outline-color: #fff;
+  border-color: #fff;
+}
+
+.dark-theme button {
+  background-color: #5f5c5c;
+  border-color: unset;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
