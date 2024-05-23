@@ -6,6 +6,7 @@ import { lightTheme, darkTheme } from './theme';
 
 interface IThemeContext {
   theme: Theme;
+  themeName?: string;
   toggleTheme: () => void;
 }
 
@@ -15,6 +16,7 @@ interface IThemeProviderProps {
 
 const defaultValue: IThemeContext = {
   theme: lightTheme,
+  themeName: 'Light',
   toggleTheme: () => {},
 };
 
@@ -24,15 +26,20 @@ export const ThemeProviderContext: React.FC<IThemeProviderProps> = ({
   children,
 }) => {
   const [theme, setTheme] = useState<Theme>(lightTheme);
+  const [themeName, setThemeName] = useState<string>('Light');
 
   const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme.palette.mode === 'light' ? darkTheme : lightTheme
-    );
+    if (themeName === 'Light') {
+      setTheme(darkTheme);
+      setThemeName('Dark');
+    } else {
+      setTheme(lightTheme);
+      setThemeName('Light');
+    }
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, themeName, toggleTheme }}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );

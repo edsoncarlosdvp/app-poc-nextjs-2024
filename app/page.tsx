@@ -2,14 +2,12 @@
 import { getAllBooks } from './api/apiBooks';
 import { BookList } from './components/BookList/BookList';
 import BookSearch from './components/BookSearch/BookSearch';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import AppBarHome from './shared/components/AppBar/AppBar';
-import { ThemeContext } from './theme/ThemeProviderContext';
-import Button from '@mui/material/Button/Button';
+import { ThemeToggle } from './shared/components/ThemeToggle/ThemeToggle';
 
 export default function Home() {
   const [books, setBooks] = useState([]);
-  const { toggleTheme } = useContext(ThemeContext);
 
   const handleSearch = async (query: string) => {
     try {
@@ -25,9 +23,7 @@ export default function Home() {
         <AppBarHome>
           <BookSearch onSearch={handleSearch} />
         </AppBarHome>
-        <Button variant='contained' color='primary' onClick={toggleTheme}>
-          Toggle Theme
-        </Button>
+        <ThemeToggle showThemeName />
         <BookList books={books} />
       </div>
     </main>
